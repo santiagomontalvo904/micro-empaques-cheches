@@ -1,0 +1,12 @@
+{
+  "name": "micro-empaques-cheches",
+  "version": "12.0.0",
+  "private": true,
+  "description": "Planeación y seguimiento de producción para Micro Empaques Cheches",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
