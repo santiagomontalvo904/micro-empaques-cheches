@@ -1,0 +1,565 @@
+{
+  "orders": [
+    {
+      "corr": "DEMO-OC-001",
+      "conv": "DEMO-OV-001",
+      "customer": "DEMO · Cartones de prueba",
+      "product": "Caja micro 1/2 regular",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 0,
+      "routeName": "Ruta 1",
+      "routeSteps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    },
+    {
+      "corr": "DEMO-OC-002",
+      "conv": "DEMO-OV-002",
+      "customer": "DEMO · Empaques de prueba",
+      "product": "Caja micro blanca",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 1,
+      "routeName": "Ruta 2",
+      "routeSteps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Pegadoras",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    },
+    {
+      "corr": "DEMO-OC-003",
+      "conv": "DEMO-OV-003",
+      "customer": "DEMO · Cliente de muestra",
+      "product": "Caja regular impresa",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 2,
+      "routeName": "Ruta 3",
+      "routeSteps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Pegadoras",
+        "Contada",
+        "Zunchada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    },
+    {
+      "corr": "DEMO-OC-004",
+      "conv": "DEMO-OV-004",
+      "customer": "DEMO · Corrugados de prueba",
+      "product": "Caja troquelada",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 3,
+      "routeName": "Ruta 4",
+      "routeSteps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Pegadoras",
+        "Contada",
+        "Encajada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    },
+    {
+      "corr": "DEMO-OC-005",
+      "conv": "DEMO-OV-005",
+      "customer": "DEMO · Cajas de muestra",
+      "product": "Caja laminada",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 4,
+      "routeName": "Ruta 5",
+      "routeSteps": [
+        "Corrugador",
+        "Convertidora",
+        "Convertidora",
+        "Guillotina",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    },
+    {
+      "corr": "DEMO-OC-006",
+      "conv": "DEMO-OV-006",
+      "customer": "DEMO · Empaques demo",
+      "product": "Caja para despacho",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 5,
+      "routeName": "Ruta 6",
+      "routeSteps": [
+        "Corrugador",
+        "Corrugador",
+        "Convertidora",
+        "Convertidora",
+        "Guillotina",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    },
+    {
+      "corr": "DEMO-OC-007",
+      "conv": "DEMO-OV-007",
+      "customer": "DEMO · Cartón de prueba",
+      "product": "Caja con flexografía",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 6,
+      "routeName": "Ruta 7",
+      "routeSteps": [
+        "Corrugador",
+        "Convertidora",
+        "Laminadoras",
+        "Cuchillos / score",
+        "Flexográfica",
+        "Pegadoras",
+        "Zunchada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    },
+    {
+      "corr": "DEMO-OC-008",
+      "conv": "DEMO-OV-008",
+      "customer": "DEMO · Distribuidora de muestra",
+      "product": "Caja plegadiza",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 7,
+      "routeName": "Ruta 8",
+      "routeSteps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Laminadoras",
+        "Flexográfica",
+        "Pegadoras",
+        "Zunchada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    },
+    {
+      "corr": "DEMO-OC-009",
+      "conv": "DEMO-OV-009",
+      "customer": "DEMO · Cliente de prueba",
+      "product": "Caja impresa",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 8,
+      "routeName": "Ruta 9",
+      "routeSteps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Flexográfica",
+        "Troqueladoras",
+        "Despique",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    },
+    {
+      "corr": "DEMO-OC-010",
+      "conv": "DEMO-OV-010",
+      "customer": "DEMO · Empaques de muestra",
+      "product": "Caja regular manual",
+      "qty": 1000,
+      "corrQty": 1000,
+      "convQty": 1000,
+      "route": 9,
+      "routeName": "Ruta 10",
+      "routeSteps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Pegada manual",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ],
+      "stage": "Corrugador",
+      "done": 0,
+      "status": "Pendiente",
+      "priority": "Normal",
+      "entryDate": "",
+      "dispatchDate": "",
+      "machine": "",
+      "started": false,
+      "finished": false,
+      "history": [],
+      "isDemo": true
+    }
+  ],
+  "routes": [
+    {
+      "name": "Ruta 1",
+      "steps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ]
+    },
+    {
+      "name": "Ruta 2",
+      "steps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Pegadoras",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ]
+    },
+    {
+      "name": "Ruta 3",
+      "steps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Pegadoras",
+        "Contada",
+        "Zunchada",
+        "Despachos"
+      ]
+    },
+    {
+      "name": "Ruta 4",
+      "steps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Pegadoras",
+        "Contada",
+        "Encajada",
+        "Despachos"
+      ]
+    },
+    {
+      "name": "Ruta 5",
+      "steps": [
+        "Corrugador",
+        "Convertidora",
+        "Convertidora",
+        "Guillotina",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ]
+    },
+    {
+      "name": "Ruta 6",
+      "steps": [
+        "Corrugador",
+        "Corrugador",
+        "Convertidora",
+        "Convertidora",
+        "Guillotina",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ]
+    },
+    {
+      "name": "Ruta 7",
+      "steps": [
+        "Corrugador",
+        "Convertidora",
+        "Laminadoras",
+        "Cuchillos / score",
+        "Flexográfica",
+        "Pegadoras",
+        "Zunchada",
+        "Despachos"
+      ]
+    },
+    {
+      "name": "Ruta 8",
+      "steps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Laminadoras",
+        "Flexográfica",
+        "Pegadoras",
+        "Zunchada",
+        "Despachos"
+      ]
+    },
+    {
+      "name": "Ruta 9",
+      "steps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Flexográfica",
+        "Troqueladoras",
+        "Despique",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ]
+    },
+    {
+      "name": "Ruta 10",
+      "steps": [
+        "Corrugador",
+        "Convertidora",
+        "Guillotina",
+        "Impresoras",
+        "Laminadoras",
+        "Troqueladoras",
+        "Despique",
+        "Pegada manual",
+        "Contada",
+        "Estresada",
+        "Despachos"
+      ]
+    }
+  ],
+  "machines": {
+    "Corrugador": [
+      "Corrugador 1 · solo micro",
+      "Corrugador 2 · micro / B / C"
+    ],
+    "Laminado": [
+      "Laminadora automática grande",
+      "Laminadora automática pequeña",
+      "Laminadora semiautomática"
+    ],
+    "Troquelado": [
+      "Troqueladora automática pequeña",
+      "Troqueladora automática grande",
+      "Troqueladora quijada grande",
+      "Troqueladora quijada pequeña",
+      "Troqueladora quijada mediana"
+    ],
+    "Impresión": [
+      "Heidelberg · 5 colores + barniz",
+      "Aurelia · 2 colores",
+      "Flexográfica"
+    ],
+    "Guillotina": [
+      "Guillotina"
+    ],
+    "Cuchillos / score": [
+      "Equipo de cuchillos / score / refilado · definir en planta"
+    ],
+    "Zuncho": [
+      "Equipo de zuncho · definir en planta"
+    ],
+    "Stretch": [
+      "Equipo de stretch film · definir en planta"
+    ],
+    "Despacho": [
+      "Puesto de despacho · definir en planta"
+    ],
+    "Despique": [
+      "Mesa de despique"
+    ],
+    "Empaque": [
+      "Conteo / empaque"
+    ],
+    "Pegadoras": [
+      "Pegadora caja regular",
+      "Pegadora doble pieza",
+      "Pegue manual"
+    ],
+    "Convertidora": [
+      "Equipo de convertidora · definir en planta"
+    ]
+  },
+  "operators": []
+}
