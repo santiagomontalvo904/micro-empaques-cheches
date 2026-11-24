@@ -1,0 +1,28 @@
+# Datos operativos locales y respaldos
+data/
+runtime/
+backups/
+respaldos/
+planta.json
+*.bak
+*.backup
+config.local.bat
+
+# Archivos de órdenes y arte compartidos
+*.xlsx
+*.xls
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# Entorno y artefactos
+.env
+.env.*
+!.env.example
+*.log
+*.zip
+node_modules/
+Thumbs.db
+Desktop.ini
