@@ -4,6 +4,8 @@ cd /d "%~dp0"
 
 where node >nul 2>nul
 if errorlevel 1 goto node_missing
+where npm >nul 2>nul
+if errorlevel 1 goto node_missing
 
 if not exist "config.local.bat" call :create_default_config
 if not exist "config.local.bat" goto config_missing
@@ -21,7 +23,16 @@ del /q "%BACKUP_DIR%\prueba-escritura.tmp" >nul 2>nul
 
 call :check_service
 if not errorlevel 1 goto open_app
-start "Micro Empaques Cheches - Servicio" /D "%~dp0" "%ComSpec%" /k "call config.local.bat && node server.mjs"
+if errorlevel 2 goto legacy_service
+if not exist "node_modules\next\package.json" (
+  call npm ci
+  if errorlevel 1 goto build_failed
+)
+if not exist ".next\BUILD_ID" (
+  call npm run build
+  if errorlevel 1 goto build_failed
+)
+start "Micro Empaques Cheches - Servicio" /D "%~dp0" "%ComSpec%" /k "call config.local.bat && npm start"
 set "ATTEMPT=0"
 :wait_for_service
 call :check_service
@@ -34,7 +45,7 @@ goto wait_for_service
 :open_app
 call :create_desktop_shortcuts
 set "APP_URL=http://localhost:4173/"
-if /I "%~1"=="planeacion" set "APP_URL=http://localhost:4173/?page=planeacion"
+if /I "%~1"=="planeacion" set "APP_URL=http://localhost:4173/planeacion"
 start "" "%APP_URL%"
 echo La aplicacion se abrira en el navegador. Mantenga abierta la ventana del servicio.
 echo Para otras pantallas de la misma red, use la direccion IP de este computador con el puerto 4173.
@@ -47,7 +58,7 @@ powershell -NoProfile -NonInteractive -Command "$w=New-Object -ComObject WScript
 exit /b 0
 
 :check_service
-powershell -NoProfile -NonInteractive -Command "try { $r=Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:4173/api/health' -TimeoutSec 2; if ($r.StatusCode -eq 200) { exit 0 }; exit 1 } catch { exit 1 }" >nul 2>nul
+powershell -NoProfile -NonInteractive -Command "try { $r=Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:4173/api/health' -TimeoutSec 2; if ($r.StatusCode -eq 200) { if (($r.Content | ConvertFrom-Json).application -eq 'nextjs') { exit 0 }; exit 2 }; exit 1 } catch { exit 1 }" >nul 2>nul
 exit /b %errorlevel%
 
 :create_default_config
@@ -61,7 +72,7 @@ set "REQUIRE_SEPARATE_BACKUP=0"
 exit /b 0
 
 :node_missing
-echo No se encontro Node.js. Instale Node.js 20 o posterior y vuelva a ejecutar INICIAR.bat.
+echo No se encontro Node.js. Instale Node.js 20.9 o posterior y vuelva a ejecutar INICIAR.bat.
 pause
 exit /b 1
 
@@ -78,6 +89,16 @@ exit /b 1
 :backup_unavailable
 echo No se puede escribir en la carpeta de respaldo: %BACKUP_DIR%
 echo Revise la ruta configurada en config.local.bat.
+pause
+exit /b 1
+
+:legacy_service
+echo Detenga la version anterior en el puerto 4173 antes de iniciar Next.js.
+pause
+exit /b 1
+
+:build_failed
+echo No se pudo instalar o compilar la aplicacion. Revise los mensajes de npm.
 pause
 exit /b 1
 

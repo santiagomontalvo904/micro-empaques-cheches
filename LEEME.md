@@ -4,22 +4,24 @@ La aplicación organiza la planeación de planta, las diez rutas de producción,
 
 ## Requisitos e inicio
 
-- Windows con Node.js 20 o posterior. No requiere instalar paquetes.
+- Windows con Node.js 20.9 o posterior. El primer inicio instala las dependencias y compila Next.js.
 - Descomprime el paquete en el computador anfitrión y ejecuta `INICIAR.bat`.
 - También puedes abrir `ABRIR APLICACION.bat` o `ABRIR PLANEACION.bat`. En el primer inicio se crean en el Escritorio los accesos directos **Micro Empaques Cheches** y **Planeacion de planta - Micro Empaques Cheches**. El segundo abre directamente la sección Planeación.
 - Si aún no existe configuración, el iniciador crea `config.local.bat` con datos en `%USERPROFILE%\Documents\Codex\MicroEmpaquesCheches-Datos` y respaldos en `%USERPROFILE%\Documents\Codex\MicroEmpaquesCheches-Respaldos`, que coincide con la instalación local previa.
 - El iniciador comprueba Node.js, levanta el servicio en una ventana aparte, espera su confirmación y abre la aplicación en el navegador. Mantén abierta la ventana del servicio durante el turno. Si ya hay un servicio activo en el puerto 4173, solo abre la app.
-- No abras `index.html` directamente: esa vista local no inicia el servicio y puede mostrar “conexión rechazada”. Usa uno de los archivos `.bat`; el navegador abrirá `http://localhost:4173/` y la planeación directa abrirá `http://localhost:4173/?page=planeacion`.
+- Usa uno de los archivos `.bat`. El inicio general abre `http://localhost:4173/` y Planeación abre `http://localhost:4173/planeacion`.
 - Para cambiar las ubicaciones, edita `config.local.bat`. Configura una carpeta de respaldo en otro disco si necesitas protección frente a una falla del disco principal.
 - El navegador abre `http://localhost:4173` automáticamente. En una instalación nueva aparecen órdenes DEMO pendientes, una por cada ruta, para revisar los tableros. Al importar la primera fila válida de la planeación real, las órdenes DEMO se quitan automáticamente. La información queda en `planta.json` dentro de la carpeta de datos.
 
-Para inicio manual avanzado, define ambas carpetas y arranca Node:
+Para inicio manual, define ambas carpetas e inicia la aplicación:
 
 ```powershell
 $env:DATA_DIR = 'C:\MicroEmpaques\datos'
 $env:BACKUP_DIR = 'D:\MicroEmpaquesCheches\Respaldos'
 $env:REQUIRE_SEPARATE_BACKUP = '1'
-node .\server.mjs
+npm ci
+npm run build
+npm start
 ```
 
 ## Planeación e importación
@@ -61,7 +63,7 @@ Despacho registra unidades despachadas y averías aparte. La cola **Entregado a 
 
 El computador anfitrión ejecuta el servicio central todo el turno. En cada terminal de la misma red de planta abre `http://IP-DEL-ANFITRION:4173`; permite Node.js en el Firewall solo para la red privada de planta. La aplicación consulta el servidor cada cinco segundos y cada terminal conserva su selección de área y máquina, por lo que el monitor de coordinación mantiene la vista completa mientras cada terminal puede mostrar su máquina. Este servicio está preparado para la LAN de planta; para acceder desde fuera de esa red hace falta una VPN o una instalación remota protegida. No expongas el puerto directamente a Internet.
 
-Los registros de producción, liberación, despacho y entrega solo aparecen confirmados después de que el servidor sincronice el archivo principal y su respaldo. Mientras esperan, se identifican como **Pendiente, no confirmado**; una liberación pendiente permanece en su estación y no habilita la siguiente. Las escrituras usan revisiones e identificadores idempotentes. Ante una revisión incompatible, la app conserva el cambio pendiente y evita sobrescribir el estado central.
+Los registros de producción, liberación, despacho y entrega solo aparecen confirmados después de que el servidor sincronice el archivo principal y su respaldo. Mientras esperan, el encabezado indica **Pendiente de confirmación**. Una liberación pendiente permanece en su estación hasta que el servidor confirma el registro. Las escrituras usan revisiones e identificadores idempotentes. Ante una revisión incompatible, la app conserva el cambio pendiente en la cola durable cuando está disponible. El encabezado permite descartarlo y cargar la revisión central tras confirmar.
 
 Por cada escritura, el servidor sincroniza el JSON y una copia versionada de la misma revisión. Al iniciar, recupera la revisión válida más alta si el archivo principal falta, está dañado o quedó atrasado. Para restaurar manualmente, detén el servicio y conserva una copia del archivo actual antes de reemplazar `DATA_DIR\planta.json` por el respaldo elegido. Es recomendable conectar un UPS al computador anfitrión y al router o switch.
 
@@ -69,6 +71,6 @@ La aplicación intenta mantener una cola en IndexedDB con durabilidad estricta y
 
 ## Verificación y alcance
 
-Se verificaron la sintaxis de la aplicación, las diez rutas y su migración desde catálogos anteriores, la separación de colas, la selección obligatoria de máquina, los códigos con nombre, el formato de fechas, la importación y confirmación de guardado, la recuperación desde respaldos y la lectura de vista previa de la hoja `ORDENES` (1.251 filas). La instalación en el computador anfitrión, la apertura del Firewall privado y el acceso entre terminales de la LAN aún deben comprobarse físicamente en planta.
+La instalación en el computador anfitrión, la apertura del Firewall privado y el acceso entre terminales de la LAN se comprueban físicamente en planta.
 
 La app no está integrada con la base existente, no tiene inicio de sesión ni permisos por usuario, y no conecta servicios externos. Antes del uso diario, define el computador anfitrión, la ubicación de datos y respaldos, y quién tendrá acceso a la red local.

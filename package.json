@@ -4,9 +4,23 @@
   "private": true,
   "description": "Planeación y seguimiento de producción para Micro Empaques Cheches",
   "scripts": {
-    "start": "node server.mjs"
+    "dev": "next dev --port 4173 --hostname 0.0.0.0",
+    "build": "next build --webpack",
+    "start": "next start --port 4173 --hostname 0.0.0.0",
+    "typecheck": "tsc --noEmit"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20.9.0"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.28",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
   }
 }
